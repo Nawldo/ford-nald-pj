@@ -1,0 +1,13 @@
+bash
+# Dependências
+node_modules/
+
+# Logs
+*.log
+
+# Ambiente
+.env
+
+# Diretórios de build
+dist/
+build/
