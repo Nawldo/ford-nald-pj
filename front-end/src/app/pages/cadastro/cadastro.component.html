@@ -1,0 +1,33 @@
+<div class="card">
+  <div class="card-header bg-primary text-white">Cadastro de Usuário</div>
+  <div class="card-body">
+    <form #form="ngForm">
+      <div class="mb-3">
+        <label>Nome</label>
+        <input type="text" class="form-control" [(ngModel)]="usuario.nome" name="nome" required />
+      </div>
+
+      <div class="mb-3">
+        <label>CPF</label>
+        <input type="text" class="form-control" mask="000.000.000-00" [(ngModel)]="usuario.cpf" name="cpf" required />
+      </div>
+
+      <div class="mb-3">
+        <label>Telefone</label>
+        <input type="text" class="form-control" mask="(00) 00000-0000" [(ngModel)]="usuario.telefone" name="telefone" />
+      </div>
+
+      <div class="form-check mb-3">
+        <input type="checkbox" class="form-check-input" [(ngModel)]="usuario.aceiteTermos" name="aceiteTermos" required />
+        <label class="form-check-label">
+          Li e aceito os <a (click)="irParaPrivacidade()" class="text-decoration-underline">termos de uso</a>
+
+        </label>
+      </div>
+
+      <button type="submit" class="btn btn-success" [disabled]="form.invalid">Cadastrar</button>
+    </form>
+  </div>
+</div>
+
+
