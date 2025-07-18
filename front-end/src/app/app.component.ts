@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { AuthService } from './services/auth.service';
-
 import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { CadastroComponent } from './pages/cadastro/cadastro.component';
 import { ListaComponent } from './pages/lista/lista.component';
 import { PoliticaPrivacidadeComponent } from './pages/politica-privacidade/politica-privacidade.component';
+import { CarouselHomeComponent } from './carousel-home-component/carousel-home-component.component';
 
 @Component({
   selector: 'app-root',
@@ -20,7 +20,8 @@ import { PoliticaPrivacidadeComponent } from './pages/politica-privacidade/polit
     CadastroComponent,
     ListaComponent,
     PoliticaPrivacidadeComponent,
-    LoginComponent
+    LoginComponent,
+    CarouselHomeComponent
   ]
 })
 export class AppComponent {

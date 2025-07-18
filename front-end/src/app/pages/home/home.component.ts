@@ -1,11 +1,16 @@
+// 1. Importe o Component e o CommonModule
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home',
-  imports: [],
+  standalone: true,
+  imports: [
+    CommonModule      // <-- Aqui você adiciona o CommonModule
+  ],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  styleUrls: ['./home.component.scss']
 })
-export class HomeComponent {
+export class HomeComponent { }
 
-}
+

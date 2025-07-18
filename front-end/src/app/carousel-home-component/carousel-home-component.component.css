@@ -1,0 +1,60 @@
+/* Estilos para o wrapper da imagem para garantir que ela ocupe 100% da altura do carrossel */
+.picsum-img-wrapper {
+  height: 500px; /* Ajuste a altura conforme necessário para o seu design */
+  overflow: hidden;
+}
+
+.picsum-img-wrapper img {
+  object-fit: cover; /* Garante que a imagem cubra o espaço sem distorcer */
+  height: 100%;
+  width: 100%;
+}
+
+/* Estilos para a legenda do carrossel */
+.carousel-caption {
+  background-color: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente para melhor legibilidade */
+  padding: 20px;
+  border-radius: 8px;
+  bottom: 20px; /* Ajuste a posição vertical */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%; /* Largura da legenda */
+  max-width: 800px; /* Largura máxima */
+}
+
+.carousel-caption h3 {
+  color: #fff; /* Cor do texto da frase */
+  font-size: 2.5rem; /* Tamanho da fonte da frase */
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* Estilos para o contêiner dos ícones */
+.icons-container {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Espaçamento entre os ícones */
+}
+
+.icons-container i {
+  font-size: 2.5rem; /* Tamanho dos ícones */
+  color: #007bff; /* Cor azul Ford para os ícones */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Cores institucionais Ford (exemplo) */
+.ford-blue { color: #007bff; } /* Azul Ford */
+.metallic-gray { color: #adb5bd; } /* Cinza metálico */
+.environmental-green { color: #28a745; } /* Verde ambiental */
+
+/* Estilos para as sombras suaves e fontes limpas */
+/* (Você pode aplicar isso globalmente em styles.css ou em componentes específicos) */
+body {
+  font-family: 'Inter', sans-serif; /* Exemplo de fonte limpa */
+}
+/* Exemplo de sombra suave para cards ou elementos */
+.card-custom {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
