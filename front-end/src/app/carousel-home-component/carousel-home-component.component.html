@@ -1,20 +1,32 @@
 <ngb-carousel class="carousel-fade" [interval]="5000" [wrap]="true" [keyboard]="true" [pauseOnHover]="false">
-  <ng-template ngbSlide *ngFor="let image of images; let i = index">
-    <div class="picsum-img-wrapper">
-      <img [src]="image.src" [alt]="image.alt" class="d-block w-100">
-    </div>
-    <div class="carousel-caption d-none d-md-block">
-      <h3 class="animate__animated animate__fadeInUp animate__delay-1s">
-        {{ image.text }}
-      </h3>
-      <div class="icons-container">
-        <i class="bi bi-building animate__animated animate__zoomIn animate__delay-2s" *ngIf="i === 0"></i>
-        <i class="bi bi-leaf animate__animated animate__zoomIn animate__delay-2s" *ngIf="i === 3"></i>
-        <i class="bi bi-people animate__animated animate__zoomIn animate__delay-2s" *ngIf="i === 1"></i>
-        <i class="bi bi-car-front animate__animated animate__zoomIn animate__delay-2s" *ngIf="i === 0"></i>
-        <i class="bi bi-globe-americas animate__animated animate__zoomIn animate__delay-2s" *ngIf="i === 4"></i>
-        <i class="bi bi-handshake animate__animated animate__zoomIn animate__delay-2s" *ngIf="i === 2"></i>
+  @for (image of images; track image.src; let i = $index) {
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+        <img [src]="image.src" [alt]="image.alt" class="d-block w-100">
       </div>
-    </div>
-  </ng-template>
+      <div class="carousel-caption d-none d-md-block">
+        <h3 class="animate__animated animate__fadeInUp animate__delay-1s">
+          {{ image.text }}
+        </h3>
+        <div class="icons-container">
+          @if (i === 0 || i === 1 || i === 2) {
+            <i class="bi bi-car-front animate__animated animate__zoomIn animate__delay-2s"></i>
+            <i class="bi bi-building animate__animated animate__zoomIn animate__delay-2s"></i>
+          }
+          @if (i === 3) {
+            <i class="bi bi-people animate__animated animate__zoomIn animate__delay-2s"></i>
+            <i class="bi bi-handshake animate__animated animate__zoomIn animate__delay-2s"></i>
+          }
+          @if (i === 4) {
+            <i class="bi bi-leaf animate__animated animate__zoomIn animate__delay-2s"></i>
+          }
+          @if (i === 5) {
+            <i class="bi bi-globe-americas animate__animated animate__zoomIn animate__delay-2s"></i>
+          }
+        </div>
+      </div>
+    </ng-template>
+  } @empty {
+    <p>Nenhuma imagem para exibir no carrossel. Verifique os dados em carousel-home.component.ts.</p>
+  }
 </ngb-carousel>

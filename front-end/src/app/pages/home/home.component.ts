@@ -1,15 +1,17 @@
 // 1. Importe o Component e o CommonModule
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CarouselHomeComponent } from "../../carousel-home-component/carousel-home-component.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [
-    CommonModule      // <-- Aqui você adiciona o CommonModule
-  ],
+    CommonModule,
+    CarouselHomeComponent
+],
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.css']
 })
 export class HomeComponent { }
 
