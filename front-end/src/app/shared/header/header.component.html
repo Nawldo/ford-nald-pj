@@ -1,9 +1,19 @@
 <header class="main-header">
-  <img src="assets/img/ford.png" alt="Logo Ford" class="logo">
-  <nav>
+  <a routerLink="/home"> <img src="assets/img/ford.png" alt="Logo Ford" class="logo">
+  </a> <nav>
     <a routerLink="/home">Home</a>
+    <a routerLink="/socioford">Socio Ford</a>
     <a routerLink="/dashboard">Dashboard</a>
-    <a routerLink="/impacto">Impacto Social</a>
-  </nav>
-</header>
+    <a routerLink="/cadastro">Cadastro</a>
+    <a routerLink="/politica-privacidade">Privacidade</a>
+    </nav>
 
+  <div class="header-actions">
+    <ng-container *ngIf="!isLoggedIn()">
+      <button class="btn btn-primary" (click)="goToLogin()">Login</button>
+    </ng-container>
+    <ng-container *ngIf="isLoggedIn()">
+      <button class="btn btn-danger" (click)="logout()">Sair</button>
+    </ng-container>
+  </div>
+</header>

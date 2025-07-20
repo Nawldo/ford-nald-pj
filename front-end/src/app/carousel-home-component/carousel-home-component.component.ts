@@ -20,34 +20,34 @@ export class CarouselHomeComponent implements OnInit {
     // Simulando dados que viriam de uma API
     this.images = [
       {
-        src: 'assets/img/a-ford.jpg', // Crie essa pasta e coloque suas imagens
+        src: 'assets/img/ford-a.jpg', // Crie essa pasta e coloque suas imagens
         alt: 'Ford: Presente, Passado e Futuro',
-        text: 'A Ford'
+        text: 'Ford ontem, hoje e sempre!'
       },
       {
-        src: 'assets/img/pode.jpg',
-        alt: 'Ford e a Diversidade',
-        text: 'Conectando pessoas, construindo um futuro inclusivo.'
-      },
-      {
-        src: 'assets/img/muito.jpg',
-        alt: 'Ford e o Engajamento Social',
+        src: 'assets/img/chegar.jpg',
+        alt: 'Ford e a aventura',
         text: 'Caminhos que se cruzam, histórias que se encontram.'
       },
       {
-        src: 'assets/img/e-juntos.jpg',
+        src: 'assets/img/inova-verde.jpg',
+        alt: 'Ford e o Engajamento Social',
+        text:'Inovação que move o mundo de forma sustentável.'
+      },
+      {
+        src: 'assets/img/gente.jpg',
         alt: 'Ford e o Meio Ambiente',
-        text: 'Inovação que move o mundo de forma sustentável.'
+        text:'Conectando pessoas, construindo um futuro inclusivo..'
       },
       {
-        src: 'assets/img/podemos.jpg',
+        src: 'assets/img/preserva.jpg',
         alt: 'Ford e o Planeta',
-        text: 'Dirigindo rumo a um futuro mais verde.'
+        text:'Dirigindo rumo a um futuro mais verde.'
       },
       {
-        src: 'assets/img/tudo.jpg',
+        src: 'assets/img/terra.jpg',
         alt: 'Ford e o Planeta',
-        text: 'Dirigindo rumo a um futuro mais verde.'
+        text:'A Ford pode MUITO e juntos podemos TUDO!.'
       }
     ];
   }

@@ -5,32 +5,32 @@ const cors = require("cors")
 const app = express();
 
 app.use(cors());
-// app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
 app.use(express.static(path.join(__dirname)));
 
 app.post("/login", async (req, res) => {
     try {
-        
-        const { nome, senha } = req.body
 
-        if (!nome || !senha) {
+        const { usuario, senha } = req.body
+
+        if (!usuario || !senha) {
             return res.status(400).json({
                 message: "O campo de usuário ou senha não foi preenchido!"
             });
         }
-
-        if (nome !== "admin" || senha !== "123456") {
+        
+        if (usuario !== "admin" || senha !== "123456") {
             return res.status(401).json({
                 message: "O nome de usuário ou senha está incorreto ou não foi cadastrado!"
             });
         }
 
+        // SUCESSO NO LOGIN - IMPORTANTE: O TOKEN DEVE ESTAR AQUI!
         return res.status(200).json({
             id: 1,
-            nome: "admin",
-            email: "admin@email.com"
+            nome: "usuario",
+            email: "admin@email.com",
+            token: "seu_token_jwt_simulado_aqui_12345" 
         });
 
     } catch (error) {
@@ -157,8 +157,6 @@ app.post("/vehicleData", (req, res) => {
                     message: "Código VIN utilizado não foi encontrado!"
                 });
         }
-
-
     } catch (error) {
         return res.status(500).json({
             message: "Falha na comunicação com o servidor!"

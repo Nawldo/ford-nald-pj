@@ -1,32 +1,38 @@
-<ngb-carousel class="carousel-fade" [interval]="5000" [wrap]="true" [keyboard]="true" [pauseOnHover]="false">
-  @for (image of images; track image.src; let i = $index) {
-    <ng-template ngbSlide>
-      <div class="picsum-img-wrapper">
-        <img [src]="image.src" [alt]="image.alt" class="d-block w-100">
-      </div>
-      <div class="carousel-caption d-none d-md-block">
-        <h3 class="animate__animated animate__fadeInUp animate__delay-1s">
-          {{ image.text }}
-        </h3>
-        <div class="icons-container">
-          @if (i === 0 || i === 1 || i === 2) {
-            <i class="bi bi-car-front animate__animated animate__zoomIn animate__delay-2s"></i>
-            <i class="bi bi-building animate__animated animate__zoomIn animate__delay-2s"></i>
-          }
-          @if (i === 3) {
-            <i class="bi bi-people animate__animated animate__zoomIn animate__delay-2s"></i>
-            <i class="bi bi-handshake animate__animated animate__zoomIn animate__delay-2s"></i>
-          }
-          @if (i === 4) {
-            <i class="bi bi-leaf animate__animated animate__zoomIn animate__delay-2s"></i>
-          }
-          @if (i === 5) {
-            <i class="bi bi-globe-americas animate__animated animate__zoomIn animate__delay-2s"></i>
-          }
+<div id="fordCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    @for (image of images; track image.src; let i = $index) {
+      <div class="carousel-item" [class.active]="i === 0">
+        <img [src]="image.src" class="d-block w-100" [alt]="image.alt">
+        <div class="carousel-caption d-none d-md-block">
+          <h3 class="animate__animated animate__fadeInUp animate__delay-1s">
+            {{ image.text }}
+          </h3>
+          <div class="icons-container">
+            @if (i === 0 || i === 1 || i === 2) {
+              <i class="bi bi-car-front animate__animated animate__zoomIn animate__delay-2s"></i>
+              <i class="bi bi-building animate__animated animate__zoomIn animate__delay-2s"></i>
+            }
+            @if (i === 3) {
+              <i class="bi bi-people animate__animated animate__zoomIn animate__delay-2s"></i>
+              <i class="bi bi-handshake animate__animated animate__zoomIn animate__delay-2s"></i>
+            }
+            @if (i === 4) {
+              <i class="bi bi-leaf animate__animated animate__zoomIn animate__delay-2s"></i>
+            }
+            @if (i === 5) {
+              <i class="bi bi-globe-americas animate__animated animate__zoomIn animate__delay-2s"></i>
+            }
+          </div>
         </div>
       </div>
-    </ng-template>
-  } @empty {
-    <p>Nenhuma imagem para exibir no carrossel. Verifique os dados em carousel-home.component.ts.</p>
-  }
-</ngb-carousel>
+    } @empty {
+      <p>Nenhuma imagem para exibir no carrossel. Verifique os dados em carousel-home.component.ts.</p>
+    }
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#fordCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#fordCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+  </button>
+</div>

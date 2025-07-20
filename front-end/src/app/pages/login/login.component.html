@@ -1,23 +1,23 @@
-<div class="modal fade show d-block" tabindex="-1" style="background-color: rgba(0, 0, 0, 0.5);">
-  <div class="modal-dialog modal-sm modal-dialog-centered">
-    <div class="modal-content shadow">
-      <div class="modal-header bg-dark text-white">
-        <h5 class="modal-title">🔐 Login</h5>
-        <button type="button" class="btn-close" aria-label="Fechar" (click)="fecharModal()"></button>
+<div class="login-container">
+  <div class="login-image-section">
+    <img src="assets/img/loginm.jpg" alt="Imagem de Login" class="login-image">
+  </div>
+  <div class="login-form-section">
+    <h2>Bem-vindo!</h2>
+    <form class="login-form" (ngSubmit)="autenticar()">
+      <div class="form-group">
+        <label for="username">Usuário ou Email</label>
+        <input type="text" id="username" name="usuario" [(ngModel)]="login.usuario" required>
       </div>
-      <div class="modal-body">
-        <form (ngSubmit)="autenticar()" #form="ngForm">
-          <div class="mb-3">
-            <label>Usuário</label>
-            <input type="text" class="form-control" [(ngModel)]="login.usuario" name="usuario" required />
-          </div>
-          <div class="mb-3">
-            <label>Senha</label>
-            <input type="password" class="form-control" [(ngModel)]="login.senha" name="senha" required />
-          </div>
-          <button class="btn btn-primary w-100" [disabled]="form.invalid">Entrar</button>
-        </form>
+      <div class="form-group">
+        <label for="password">Senha</label>
+        <input type="password" id="password" name="senha" [(ngModel)]="login.senha" required>
       </div>
-    </div>
+      <button type="submit" class="btn btn-primary login-button">Entrar</button>
+      <div class="login-options">
+        <a routerLink="/recuperar-senha">Esqueceu a senha?</a>
+        <p>Não tem uma conta? <a routerLink="/cadastro">Cadastre-se</a></p>
+      </div>
+    </form>
   </div>
 </div>
