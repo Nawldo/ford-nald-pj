@@ -1,35 +1,51 @@
-<div class="container my-5">
-  <h2 class="text-center text-primary mb-4">Dashboard 🚗</h2>
+<div class="dashboard-layout">
+  <aside class="sidebar">
+    <h3>Navegação Rápida</h3>
+    <ul>
+      <li><a routerLink="/dashboard" class="sidebar-link">Visão Geral</a></li>
+      <li><a routerLink="/socioford" class="sidebar-link">Ações Sociais</a></li>
+      <li><a routerLink="/politica-privacidade" class="sidebar-link">Privacidade</a></li>
+      </ul>
 
-  <div class="row g-4">
-    <div class="col-md-4">
-      <div class="card shadow-sm">
-        <div class="card-body text-center">
-          <h5 class="card-title">Perfil</h5>
-          <p class="card-text">Veja e edite suas informações.</p>
-          <a href="/perfil" class="btn btn-outline-primary">Acessar</a>
-        </div>
-      </div>
+    <div class="vehicle-details-section">
+        <h3>Detalhes do Veículo</h3>
+        @if (selectedVehicle) {
+            <div class="selected-vehicle-card">
+                <img [src]="selectedVehicle.img" [alt]="selectedVehicle.vehicle" class="selected-vehicle-image">
+                <h4>{{ selectedVehicle.vehicle }}</h4>
+                <p>VIN: {{ selectedVehicle.vin }}</p>
+                <p>Odômetro: {{ selectedVehicle.odometro }} km</p>
+                <p>Combustível: {{ selectedVehicle.nivelCombustivel }}%</p>
+                <p>Status: <span [class]="selectedVehicle.status === 'on' ? 'status-on' : 'status-off'">{{ selectedVehicle.status === 'on' ? 'Ligado' : 'Desligado' }}</span></p>
+            </div>
+        } @else {
+            <p>Selecione um veículo para ver os detalhes.</p>
+        }
     </div>
+  </aside>
 
-    <div class="col-md-4">
-      <div class="card shadow-sm">
-        <div class="card-body text-center">
-          <h5 class="card-title">Sócio Ford</h5>
-          <p class="card-text">Gerencie benefícios e status.</p>
-          <a href="/socioford" class="btn btn-outline-success">Acessar</a>
-        </div>
-      </div>
-    </div>
+  <main class="content-area">
+    <h2>Nossa Frota Conectada</h2>
 
-    <div class="col-md-4">
-      <div class="card shadow-sm">
-        <div class="card-body text-center">
-          <h5 class="card-title">Configurações</h5>
-          <p class="card-text">Preferências e segurança.</p>
-          <a href="/configuracoes" class="btn btn-outline-warning">Acessar</a>
-        </div>
+    @if (errorMessage) {
+      <div class="alert alert-danger" role="alert">
+        {{ errorMessage }}
       </div>
-    </div>
-  </div>
+    } @else if (vehicles.length === 0) {
+      <p>Nenhum veículo disponível no momento.</p>
+    } @else {
+      <div class="vehicle-list">
+        @for (vehicle of vehicles; track vehicle.id) {
+          <div class="vehicle-card" (click)="loadVehicleDetails(vehicle.id)"> <img [src]="vehicle.img" [alt]="'Imagem do ' + vehicle.vehicle" class="vehicle-image">
+            <h3>{{ vehicle.vehicle }}</h3>
+            <p>VIN: {{ vehicle.vin }}</p>
+            <p>Volume Total: {{ vehicle.volumetotal }}</p>
+            <p>Conectados: {{ vehicle.connected }}</p>
+            <p>Atualizações de Software: {{ vehicle.softwareUpdates }}</p>
+            <p class="vehicle-price">Preço: R$ {{ vehicle.price | number:'1.2-2':'pt' }}</p>
+          </div>
+        }
+      </div>
+    }
+  </main>
 </div>

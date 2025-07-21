@@ -1,9 +1,7 @@
-// src/app/services/dashboard.service.ts
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs'; // Importe 'Observable'
-// Importe as interfaces Veiculo e VehicleData (que criaremos a seguir)
-import { Veiculo, VehicleData } from './../models/cartao'; // Ajuste o caminho se seu modelo 'cartao.ts' estiver em outro lugar
+import { Veiculo, VehicleData } from './../models/cartao'; // Ajusta o caminho se o modelo 'cartao.ts' estiver em outro lugar
 
 @Injectable({
   providedIn: 'root' // Garante que o serviço pode ser injetado em qualquer lugar

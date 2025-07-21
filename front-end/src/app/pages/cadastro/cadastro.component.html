@@ -1,33 +1,35 @@
-<div class="card">
-  <div class="card-header bg-primary text-white">Cadastro de Usuário</div>
-  <div class="card-body">
-    <form #form="ngForm">
+<div class="cadastro-page">
+  <div class="cadastro-card">
+    <h2>Criar Conta</h2>
+    <form (ngSubmit)="cadastrar()">
       <div class="mb-3">
-        <label>Nome</label>
-        <input type="text" class="form-control" [(ngModel)]="usuario.nome" name="nome" required />
+        <label for="nome" class="form-label">Nome Completo</label>
+        <input type="text" class="form-control" id="nome" [(ngModel)]="usuario.nome" name="nome" required>
       </div>
-
       <div class="mb-3">
-        <label>CPF</label>
-        <input type="text" class="form-control" mask="000.000.000-00" [(ngModel)]="usuario.cpf" name="cpf" required />
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" [(ngModel)]="usuario.email" name="email" required>
       </div>
-
       <div class="mb-3">
-        <label>Telefone</label>
-        <input type="text" class="form-control" mask="(00) 00000-0000" [(ngModel)]="usuario.telefone" name="telefone" />
+        <label for="senha" class="form-label">Senha</label>
+        <input type="password" class="form-control" id="senha" [(ngModel)]="usuario.senha" name="senha" required>
+      </div>
+      <div class="mb-3">
+        <label for="confirmarSenha" class="form-label">Confirmar Senha</label>
+        <input type="password" class="form-control" id="confirmarSenha" [(ngModel)]="usuario.confirmarSenha" name="confirmarSenha" required>
       </div>
 
       <div class="form-check mb-3">
-        <input type="checkbox" class="form-check-input" [(ngModel)]="usuario.aceiteTermos" name="aceiteTermos" required />
-        <label class="form-check-label">
-          Li e aceito os <a (click)="irParaPrivacidade()" class="text-decoration-underline">termos de uso</a>
-
+        <input type="checkbox" class="form-check-input" id="aceiteTermos" [(ngModel)]="usuario.aceiteTermos" name="aceiteTermos" required>
+        <label class="form-check-label" for="aceiteTermos">
+          Eu concordo com os <a routerLink="/politica-privacidade">termos de uso e a política de privacidade</a>.
         </label>
       </div>
 
-      <button type="submit" class="btn btn-success" [disabled]="form.invalid">Cadastrar</button>
+      <button type="submit" class="btn btn-primary w-100">Cadastrar</button>
     </form>
+    <div class="cadastro-links mt-3 text-center">
+      <p>Já tem uma conta? <a routerLink="/">Faça Login</a></p>
+    </div>
   </div>
 </div>
-
-

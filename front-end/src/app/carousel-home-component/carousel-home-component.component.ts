@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common'; // Importe CommonModule para usar @for, @if
-import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap'; // Importe NgbCarouselModule
+import { CommonModule } from '@angular/common';
+import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-carousel-home',
@@ -20,7 +20,7 @@ export class CarouselHomeComponent implements OnInit {
     // Simulando dados que viriam de uma API
     this.images = [
       {
-        src: 'assets/img/ford-a.jpg', // Crie essa pasta e coloque suas imagens
+        src: 'assets/img/ford-a.jpg',
         alt: 'Ford: Presente, Passado e Futuro',
         text: 'Ford ontem, hoje e sempre!'
       },
@@ -53,7 +53,7 @@ export class CarouselHomeComponent implements OnInit {
   }
 }
 
-// Opcional: Defina uma interface para a tipagem das suas imagens
+// Opcional: Defina uma interface para a tipagem das imagens
 interface CarouselImage {
   src: string;
   alt: string;

@@ -1,10 +1,9 @@
-// src/app/services/login.service.ts
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
 
-import { Usuario } from '../models/user'; // Ajuste o caminho se o seu modelo 'user.ts' estiver em outro lugar
+import { Usuario } from '../models/user'; // Ajusta o caminho se o seu modelo 'user.ts' estiver em outro lugar
 
 @Injectable({
   providedIn: 'root'

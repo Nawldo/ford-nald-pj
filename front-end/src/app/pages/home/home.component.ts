@@ -1,4 +1,3 @@
-// 1. Importe o Component e o CommonModule
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CarouselHomeComponent } from "../../carousel-home-component/carousel-home-component.component";

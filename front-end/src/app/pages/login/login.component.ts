@@ -2,7 +2,7 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router'; // Certifique-se que Router está importado
+import { Router, RouterLink } from '@angular/router'; // Certifique-se que Router está importado
 import { AuthService } from '../../services/auth.service'; // Certifique-se que AuthService está importado
 
 @Component({
@@ -10,7 +10,7 @@ import { AuthService } from '../../services/auth.service'; // Certifique-se que 
   standalone: true,
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  imports: [CommonModule, FormsModule]
+  imports: [CommonModule, FormsModule, RouterLink]
 })
 export class LoginComponent {
   @Output() fechar = new EventEmitter<void>();

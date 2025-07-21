@@ -1,49 +1,106 @@
-.recuperar-container {
+.recover-password-page {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-color: #e6f0ff;
+  min-height: calc(100vh - 100px); /* Altura mínima, descontando header/footer */
+  background-color: #f4f4f4;
+  padding: 20px;
 }
 
-.recuperar-box {
+.recover-password-card {
   background-color: #fff;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  max-width: 400px;
-  width: 90%;
-  text-align: center;
-}
-
-.recuperar-box h2 {
-  color: #003399;
-}
-
-input {
-  width: 100%;
-  padding: 0.8rem;
-  margin-top: 1rem;
+  padding: 40px;
   border-radius: 8px;
-  border: 1px solid #ccc;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 450px;
+  width: 100%;
+  text-align: center; /* Centraliza o texto geral */
 }
 
-button {
-  width: 100%;
-  padding: 0.8rem;
-  margin-top: 1rem;
-  background-color: #003399;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
+.recover-password-card h2 {
+  color: #00205B; /* Azul Ford */
+  font-size: 2.2rem;
+  margin-bottom: 20px;
   font-weight: bold;
-  cursor: pointer;
 }
 
-.voltar-link {
+.recover-password-card p {
+  color: #555;
+  margin-bottom: 25px;
+  font-size: 0.95rem;
+}
+
+.recover-password-card .form-label {
+  text-align: left; /* Alinha o label à esquerda */
   display: block;
-  margin-top: 1rem;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.recover-password-card .form-control {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  margin-bottom: 20px; /* Espaço abaixo do input */
+}
+
+.recover-password-card .form-control:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+}
+
+.recover-password-card .btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+  padding: 14px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  width: 100%;
+}
+
+.recover-password-card .btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #004085;
+}
+
+.recover-password-links a {
+  color: #007bff;
   text-decoration: none;
-  color: #003399;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
+}
+
+.recover-password-links a:hover {
+  text-decoration: underline;
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 576px) {
+  .recover-password-card {
+    padding: 25px 20px;
+    margin: 0 15px;
+  }
+  .recover-password-card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+  }
+  .recover-password-card p {
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+  }
+  .recover-password-card .form-control {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+  .recover-password-card .btn-primary {
+    padding: 12px;
+    font-size: 1rem;
+  }
 }

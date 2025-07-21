@@ -1,0 +1,136 @@
+.socioford-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  line-height: 1.6;
+  color: #333;
+}
+
+.socioford-container h1 {
+  color: #00205B; /* Azul Ford */
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 50px;
+  font-weight: bold;
+}
+
+.socioford-container section {
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 1px dashed #e0e0e0; /* Linha divisória sutil */
+}
+
+.socioford-container section:last-of-type {
+  border-bottom: none; /* Remove borda da última seção */
+  margin-bottom: 20px;
+}
+
+.socioford-container h2 {
+  color: #007bff; /* Azul primário do Bootstrap */
+  font-size: 2rem;
+  margin-top: 0;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.socioford-container p {
+  margin-bottom: 15px;
+  text-align: justify; /* Justifica o texto para melhor leitura */
+}
+
+.socioford-container ul {
+  margin-bottom: 15px;
+  padding-left: 25px;
+}
+
+.socioford-container ul li {
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.socioford-container .section-image {
+  width: 100%;
+  max-height: 350px; /* Altura máxima para imagens das seções */
+  object-fit: cover; /* Garante que a imagem preencha o espaço */
+  border-radius: 8px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Estilos para a seção do vídeo */
+.section-video h2 {
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.section-video p {
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.video-responsive {
+  position: relative;
+  padding-bottom: 56.25%; /* Proporção 16:9 (altura / largura) */
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  background-color: #000; /* Fundo preto enquanto o vídeo carrega */
+  margin: 0 auto; /* Centraliza o player */
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.video-responsive iframe,
+.video-responsive object,
+.video-responsive embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0; /* Remove a borda padrão do iframe */
+}
+
+.socioford-container .btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    display: block;
+    width: fit-content;
+    margin: 20px auto 0; /* Centraliza o botão */
+}
+
+.socioford-container .btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 768px) {
+  .socioford-container {
+    margin: 20px 15px;
+    padding: 20px;
+  }
+  .socioford-container h1 {
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+  }
+  .socioford-container h2 {
+    font-size: 1.7rem;
+    margin-bottom: 15px;
+  }
+  .socioford-container p, .socioford-container ul li {
+    font-size: 0.95rem;
+  }
+  .socioford-container .section-image {
+    max-height: 250px;
+  }
+}

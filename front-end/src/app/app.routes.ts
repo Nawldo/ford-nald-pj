@@ -1,5 +1,7 @@
+import { CadastroComponent } from './pages/cadastro/cadastro.component';
 import { loginGuard } from './core/guards/login.guard';
 import { Routes } from '@angular/router';
+import { PoliticaPrivacidadeComponent } from './pages/politica-privacidade/politica-privacidade.component';
 
 export const routes: Routes = [
   {
@@ -23,9 +25,14 @@ export const routes: Routes = [
       .then(m => m.DashboardComponent)
   },
   {
+    path: 'cadastro',
+    pathMatch: 'full',
+    loadComponent: () => import('./pages/cadastro/cadastro.component')
+      .then(m => m.CadastroComponent)
+  },
+  {
     path: 'socioford',
     pathMatch: 'full',
-    canActivate: [loginGuard],
     loadComponent: () => import('./pages/socioford/socioford.component')
       .then(m => m.SociofordComponent)
   },
@@ -36,10 +43,14 @@ export const routes: Routes = [
         .then(m => m.RecuperarSenhaComponent)
   },
   {
+    path: 'politica-privacidade',
+    loadComponent: () =>
+      import('./pages/politica-privacidade/politica-privacidade.component')
+        .then(m => m.PoliticaPrivacidadeComponent)
+  },
+  {
     path: '**',
     redirectTo: '',
     pathMatch: 'full'
   }
-
-
 ];

@@ -1,0 +1,94 @@
+.privacy-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  line-height: 1.6;
+  color: #333;
+}
+
+.privacy-container h1 {
+  color: #00205B; /* Azul Ford */
+  font-size: 2.8rem;
+  text-align: center;
+  margin-bottom: 40px;
+  font-weight: bold;
+}
+
+.privacy-container h2 {
+  color: #007bff; /* Azul primário do Bootstrap */
+  font-size: 1.8rem;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
+}
+
+.privacy-container p {
+  margin-bottom: 15px;
+}
+
+.privacy-container ul {
+  margin-bottom: 15px;
+  padding-left: 25px;
+}
+
+.privacy-container ul li {
+  margin-bottom: 8px;
+}
+
+.privacy-container a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.privacy-container a:hover {
+  text-decoration: underline;
+}
+
+.privacy-container .last-updated {
+  text-align: right;
+  font-size: 0.85rem;
+  color: #777;
+  margin-top: 30px;
+}
+
+.privacy-container .btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    display: block; /* Ocupa a largura total */
+    width: fit-content; 
+    margin: 20px auto 0; /* Centraliza o botão */
+}
+
+.privacy-container .btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 768px) {
+  .privacy-container {
+    margin: 20px 15px;
+    padding: 20px;
+  }
+  .privacy-container h1 {
+    font-size: 2rem;
+    margin-bottom: 25px;
+  }
+  .privacy-container h2 {
+    font-size: 1.5rem;
+    margin-top: 20px;
+  }
+  .privacy-container p, .privacy-container ul li {
+    font-size: 0.95rem;
+  }
+}

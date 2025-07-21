@@ -1,143 +1,154 @@
-/* C:/dev/ford-nald-pf/front-end/src/app/shared/footer/footer.component.css */
-
 .main-footer {
   background-color: #00205B;
   color: #f0f0f0;
-  padding: 35px 20px;
-  font-size: 0.95rem;
+  padding: 15px 20px; /* <-- AJUSTADO: Padding vertical e horizontal para o footer total */
+  font-size: 0.9rem; /* Fonte ligeiramente menor */
   border-top: 1px solid #003366;
   width: 100%;
   box-sizing: border-box;
   flex-shrink: 0;
 
-  display: flex; /* O main-footer é um flex container */
-  flex-direction: row; /* Alinha as seções (brand, nav, social) em linha */
-  justify-content: space-around; /* Distribui o espaço entre as seções */
-  align-items: flex-start; /* Alinha as seções no topo (para que os conteúdos de cada seção comecem no mesmo nível) */
-  gap: 30px; /* Espaço entre as seções do footer */
-  flex-wrap: wrap; /* Permite que as seções quebrem a linha em telas menores */
+  display: flex;
+  flex-direction: row; /* <-- CRÍTICO: ALINHA OS ITENS PRINCIPAIS HORIZONTALMENTE */
+  justify-content: space-around; /* Distribui o espaço entre os itens */
+  align-items: flex-start; /* Alinha os itens pelo topo (ou 'center' se quiser tudo centralizado verticalmente) */
+  gap: 20px; /* <-- AJUSTADO: Espaço entre os grupos de itens */
+  flex-wrap: wrap; /* Permite quebrar linha em telas menores */
 }
 
-.footer-section { /* Estilo base para cada uma das três seções do footer */
+.footer-group-item { /* Estilo para CADA GRUPO DE ITENS (Marca, Links, Redes, Copyright) */
     display: flex;
-    flex-direction: column; /* Conteúdo dentro de cada seção é em coluna */
-    align-items: flex-start; /* Alinha o texto à esquerda dentro de cada seção */
-    text-align: left; /* Garante que o texto fique à esquerda */
-    gap: 8px; /* Espaçamento entre os elementos dentro da seção */
-    flex: 1; /* Permite que cada seção ocupe espaço igual */
-    min-width: 200px; /* Largura mínima para cada coluna antes de quebrar */
-    max-width: 300px; /* Largura máxima para cada coluna */
+    flex-direction: column; /* Conteúdo DENTRO do grupo empilha */
+    align-items: center; /* <-- CRÍTICO: CENTRALIZA O CONTEÚDO DENTRO DE CADA GRUPO */
+    text-align: center; /* Centraliza o texto */
+    gap: 5px; /* Espaçamento entre os elementos dentro do grupo */
+    flex: 1; /* Permite que os grupos ocupem espaço igual */
+    min-width: 180px; /* Largura mínima para cada grupo antes de quebrar a linha */
+    max-width: 250px; /* Largura máxima para cada grupo */
+    padding: 5px; /* Padding interno para o grupo */
 }
 
-/* Estilo específico para a seção de redes sociais, para centralizar seus ícones */
-.footer-section.social-media {
-    align-items: flex-start; /* Alinha o grupo de ícones à esquerda */
-    justify-content: flex-start; /* Opcional, para garantir que começa no topo */
+/* Estilo para a logo dentro do footer */
+.footer-logo {
+    height: 100px; /* Altura da logo */
+    width: auto;
+    max-width: 150px;
+    object-fit: contain;
+    margin-bottom: 5px; /* Espaço entre o logo e o slogan */
 }
 
-.footer-brand {
-  font-size: 1.3rem;
-  font-weight: bold;
-  color: #ffffff;
-  margin-bottom: 0; /* Removido, usa o gap */
-}
-
+/* Estilos para os textos de marca/slogan */
+.footer-brand,
 .footer-slogan {
-  font-style: italic;
-  color: #cccccc;
-  margin-bottom: 0; /* Removido, usa o gap */
+    margin-bottom: 0;
+}
+.footer-brand {
+    font-size: 1.1rem; /* Fonte um pouco menor */
+    font-weight: bold;
+    color: #ffffff;
+}
+.footer-slogan {
+    font-style: italic;
+    color: #cccccc;
 }
 
-.footer-nav { /* Este é o grupo de links */
-  display: flex;
-  flex-direction: column; /* Links um abaixo do outro */
-  gap: 8px; /* Espaço entre os links */
-  margin-top: 0; /* Removido, usa o gap do footer-section */
-  padding: 0;
-  list-style: none;
+/* Estilos para a navegação de links */
+.footer-group-item h3 { /* Títulos dos grupos (Links Úteis, Siga-nos) */
+    color: #ffffff;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 5px;
+    width: 100%;
 }
-
+.footer-nav {
+    display: flex;
+    flex-direction: column; /* Links um abaixo do outro */
+    gap: 5px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
 .footer-nav .footer-link {
-  color: #a0dfff;
-  text-decoration: none;
-  font-size: 1rem;
-  transition: color 0.3s ease, text-decoration 0.3s ease;
+    color: #a0dfff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
 }
-
 .footer-nav .footer-link:hover {
-  color: #ffffff;
-  text-decoration: underline;
+    color: #ffffff;
+    text-decoration: underline;
 }
 
-.social-links { /* Este é o grupo de ícones */
-  display: flex;
-  flex-direction: row; /* Ícones lado a lado */
-  justify-content: flex-start; /* Alinha os ícones à esquerda dentro da sua seção */
-  gap: 20px; /* Espaço entre os ícones */
-  margin-top: 0; /* Removido, usa o gap do footer-section */
-  padding: 0;
+/* Estilos para as redes sociais */
+.social-links {
+    display: flex;
+    flex-direction: row; /* Ícones lado a lado */
+    justify-content: center; /* Centraliza os ícones */
+    gap: 10px; /* Espaço entre os ícones */
+    margin-top: 0;
+    padding: 0;
 }
-
 .social-links a {
-  color: #a0dfff;
-  font-size: 1.8rem;
-  transition: color 0.3s ease, transform 0.3s ease;
+    color: #a0dfff;
+    font-size: 1.4rem; /* Tamanho dos ícones */
+    transition: color 0.3s ease, transform 0.3s ease;
 }
-
 .social-links a:hover {
-  color: #ffffff;
-  transform: translateY(-3px);
+    color: #ffffff;
+    transform: translateY(-2px);
 }
 
+/* Estilos para o Copyright */
+.copyright-item { /* Estilo específico para o grupo do copyright */
+    /* Pode ajustar se precisar de alinhamento diferente, mas 'footer-group-item' já centraliza */
+    margin-top: 10px; /* Espaço entre os outros grupos e o copyright em desktop */
+}
 .footer-copyright {
   color: #cccccc;
-  font-size: 0.85rem;
-  margin-top: 0; /* Removido, usa o gap do footer-section */
+  font-size: 0.75rem; /* Fonte menor para o copyright */
+  margin: 0;
 }
 
-.footer-brand .globe-icon {
-  margin-right: px;
-  font-size: 1.2em;
-  vertical-align: middle;
-}
-
-/* Media Queries para Responsividade (empilha em telas menores) */
+/* Media Queries para Responsividade */
 @media (max-width: 768px) {
   .main-footer {
-    flex-direction: column; /* Empilha as seções */
-    align-items: center; /* Centraliza as seções no footer */
-    padding: 20px 15px;
-    font-size: 0.9rem;
+    flex-direction: column; /* Empilha os grupos em mobile */
+    align-items: center;
+    padding: 15px 15px 10px;
+    gap: 15px; /* Espaço entre os grupos empilhados */
   }
-
-  .footer-section {
-    align-items: center; /* Centraliza o conteúdo dentro de cada seção em mobile */
-    text-align: center; /* Centraliza o texto em mobile */
-    max-width: 100%; /* Ocupa a largura total */
+  .footer-group-item {
+    min-width: unset;
+    width: 100%;
+    max-width: 100%;
+    align-items: center; /* Centraliza o conteúdo dentro de cada grupo em mobile */
+    text-align: center;
+    padding: 0;
   }
-
-  .footer-nav {
-    flex-direction: column; /* Links em coluna */
-    gap: 10px;
+  .footer-logo {
+    height: 50px;
+    max-width: 120px;
   }
-
-  .social-links {
-    justify-content: center; /* Centraliza os ícones em mobile */
-  }
-
   .footer-brand {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
   .footer-slogan {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
+  }
+  .footer-nav {
+    gap: 8px;
   }
   .footer-nav .footer-link {
-    font-size: 0.95rem;
+    font-size: 0.85rem;
+  }
+  .social-links {
+    gap: 10px;
   }
   .social-links a {
-    font-size: 1.7rem;
+    font-size: 1.2rem;
   }
   .footer-copyright {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
   }
 }

@@ -1,0 +1,134 @@
+.cadastro-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 100px); /* Altura mínima, descontando header/footer */
+  background-color: #f4f4f4;
+  padding: 20px;
+}
+
+.cadastro-card {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 500px; /* Um pouco mais largo para cadastro */
+  width: 100%;
+  text-align: left;
+}
+
+.cadastro-card h2 {
+  text-align: center;
+  color: #00205B; /* Azul Ford */
+  margin-bottom: 30px;
+  font-size: 2.2rem;
+  font-weight: bold;
+}
+
+.cadastro-card .form-label {
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.cadastro-card .form-control {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.cadastro-card .form-control:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+}
+
+.cadastro-card .form-check {
+  display: flex; /* Para alinhar o checkbox e o label */
+  align-items: center;
+  margin-bottom: 25px;
+  cursor: pointer; /* Indica área clicável*/
+}
+
+.cadastro-card .form-check-input {
+  width: 20px;
+  height: 20px; 
+  margin-top: 0; 
+  margin-right: 12px;
+  border: 2px solid #007bff; /* Espaço entre checkbox e label */
+  flex-shrink: 0; /* Impede que o checkbox encolha */
+}
+
+.cadastro-card .form-check-input:checked {
+  background-color: #007bff; /* Fundo azul quando marcado */
+  border-color: #007bff;
+}
+
+.cadastro-card .form-check-label {
+  font-size: 1rem; /* Tamanho da fonte normal para a label */
+  color: #333; /* Cor mais escura para o texto */
+  font-weight: 500; /* Um pouco mais de peso na fonte */
+  cursor: pointer;
+}
+
+.cadastro-card .form-check-label a {
+  color: #007bff; /* Garante que o link seja azul e se destaque */
+  font-weight: bold; /* Deixa o link em negrito */
+  text-decoration: none;
+  transition: text-decoration 0.3s ease;
+}
+
+.cadastro-card .form-check-label a:hover {
+  text-decoration: underline;
+}
+
+.cadastro-card .btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+  padding: 14px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  width: 100%;
+}
+
+.cadastro-card .btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #004085;
+}
+
+.cadastro-links {
+  margin-top: 25px;
+  font-size: 0.95rem;
+  color: #6c757d;
+}
+
+.cadastro-links a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.cadastro-links a:hover {
+  text-decoration: underline;
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 576px) {
+
+  .cadastro-card .form-check {
+    margin-bottom: 15px; 
+  }
+  .cadastro-card .form-check-input {
+    width: 18px; /* Ligeiramente menor em mobile */
+    height: 18px;
+    margin-right: 10px;
+  }
+  .cadastro-card .form-check-label {
+    font-size: 0.9rem; /* Ligeiramente menor em mobile */
+  }
+}
