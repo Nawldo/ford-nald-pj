@@ -151,7 +151,25 @@ app.post("/vehicleData", (req, res) => {
                     lat: -12.2322,
                     long: -35.2314
                 });
+             case "2FMUEYS2Y63MUE456": // <-- VIN DO MUSTANG-E (id 5)
+                return res.status(200).json({
+                    id: 5, 
+                    odometro: 35000, 
+                    nivelCombustivel: 95, 
+                    status: "on",
+                    lat: -23.5505, 
+                    long: -46.6333
+                });
 
+            case "2FMAHDYS2Y63MAV789": // <-- VIN DO MAVERICK (id 6)
+                return res.status(200).json({
+                    id: 6, 
+                    odometro: 18000,
+                    nivelCombustivel: 70,
+                    status: "on",
+                    lat: -19.9167, 
+                    long: -43.9345
+                })
             default:
                 return res.status(400).json({
                     message: "Código VIN utilizado não foi encontrado!"

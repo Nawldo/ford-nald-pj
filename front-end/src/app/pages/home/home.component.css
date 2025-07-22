@@ -1,11 +1,51 @@
-.carousel-caption h2 {
-  font-family: 'Segoe UI', sans-serif;
-  font-size: 2.5rem;
-  font-weight: bold;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+.home-page-content {
+  padding: 30px 20px;
+  max-width: 1200px;
+  margin: 20px auto;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  text-align: center; /* Centraliza o conteúdo geral da Home */
 }
 
-.carousel-item img {
-  height: 80vh;
-  object-fit: cover;
+.home-page-content h1 {
+  color: #00205B;
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.home-page-content p {
+  color: #555;
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+}
+
+.simple-carousel-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin-top: 20px;
+  margin-bottom: 50px; /* Adiciona uma margem inferior de 50px */
+  border-radius: 14px; /* Adiciona bordas arredondadas ao carrossel */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Adiciona uma sombra para destacá-lo */
+}
+
+
+/* Media Queries para Responsividade (ajustes na margem em telas menores) */
+@media (max-width: 768px) {
+  .home-page-content {
+    padding: 20px 15px;
+  }
+  .home-page-content h1 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+  }
+  .home-page-content p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+  .simple-carousel-container {
+    margin-bottom: 30px; /*Menor margem em telas menores */
+  }
 }

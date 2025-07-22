@@ -1,23 +1,31 @@
-import { Component, OnInit } from '@angular/core';
+// C:/dev/ford-nald-pf/front-end/src/app/carousel-home-component/carousel-home-component.component.ts
+import { Component, OnInit } from '@angular/core'; // Removido AfterViewInit e ElementRef
 import { CommonModule } from '@angular/common';
-import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
+
+// Removida a declaração: declare const bootstrap: any;
+
+interface CarouselImage {
+  src: string;
+  alt: string;
+  text: string;
+}
 
 @Component({
   selector: 'app-carousel-home',
   standalone: true,
   imports: [
-    CommonModule, // Necessário para @for, @if
-    NgbCarouselModule // Necessário para ngb-carousel
+    CommonModule
   ],
   templateUrl: './carousel-home-component.component.html',
   styleUrls: ['./carousel-home-component.component.css']
 })
-export class CarouselHomeComponent implements OnInit {
+export class CarouselHomeComponent implements OnInit { // Removida a implementação de AfterViewInit
+  images: CarouselImage[] = [];
 
-  images: CarouselImage[] = []; // Defina o tipo da sua array de imagens
+  constructor() { } // Removida a injeção de ElementRef
 
   ngOnInit(): void {
-    // Simulando dados que viriam de uma API
+    // SUAS IMAGENS E FRASES NA ORDEM CORRETA
     this.images = [
       {
         src: 'assets/img/ford-a.jpg',
@@ -51,11 +59,6 @@ export class CarouselHomeComponent implements OnInit {
       }
     ];
   }
-}
 
-// Opcional: Defina uma interface para a tipagem das imagens
-interface CarouselImage {
-  src: string;
-  alt: string;
-  text: string;
+  // Removido completamente o método ngAfterViewInit()
 }
