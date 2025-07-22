@@ -1,4 +1,3 @@
-// src/app/models/cartao.ts
 
 /**
  * @type Veiculo

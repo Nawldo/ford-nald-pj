@@ -1,12 +1,11 @@
-import { Component, OnInit, LOCALE_ID, AfterViewInit } from '@angular/core'; // Adicione AfterViewInit
+import { Component, OnInit, LOCALE_ID, AfterViewInit } from '@angular/core'; 
 import { CommonModule, registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
 import { HttpClient } from '@angular/common/http';
 import { Observable, catchError, of } from 'rxjs';
 import { RouterLink } from '@angular/router';
-import { AnimationService } from '../../services/animation'; // Importe o serviço (corrigido para .service)
-import { ViewChildren, QueryList, ElementRef } from '@angular/core'; // Para observar múltiplos elementos
-
+import { AnimationService } from '../../services/animation'; 
+import { ViewChildren, QueryList, ElementRef } from '@angular/core';
 registerLocaleData(localePt);
 
 interface Vehicle {
@@ -41,10 +40,8 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   selectedVehicle: (Vehicle & VehicleDetails) | null = null;
   errorMessage: string | null = null;
 
-  // CORREÇÃO AQUI: URL para LISTAR TODOS os veículos
-  private vehiclesApiUrl = 'http://localhost:3001/vehicles'; // <-- DEVE SER '/vehicles' para a lista!
-  // CORREÇÃO AQUI: URL para buscar DETALHES de um veículo (com VIN)
-  private vehicleDetailsApiUrl = 'http://localhost:3001/vehicleData'; // <-- DEVE SER 'localhost:3001/vehicleData'! // Corrigi o http://localhost para a URL correta, assumindo que 3001 é o dominio do backend.
+  private vehiclesApiUrl = 'http://localhost:3001/vehicles'; 
+  private vehicleDetailsApiUrl = 'http://localhost:3001/vehicleData'; 
 
   constructor(private http: HttpClient, private animationService: AnimationService) { }
 
@@ -81,10 +78,8 @@ export class DashboardComponent implements OnInit, AfterViewInit {
       )
       .subscribe(response => {
         if (response && response.vehicles) {
-          // Simular VINs e Preços para cada veículo, incluindo os novos
           const allVehiclesData = [
-            ...response.vehicles, // Mantém os veículos da API
-            // ADICIONAR OS DOIS NOVOS CARROS AQUI: Mustang-e e Maverick
+            ...response.vehicles, 
             { id: 5, vehicle: "Mustang-e", volumetotal: 75000, connected: 60000, softwareUpdates: 30000, img: "http://localhost:3001/img/mustang-e.png" },
             { id: 6, vehicle: "Maverick", volumetotal: 40000, connected: 35000, softwareUpdates: 12000, img: "http://localhost:3001/img/maverick.png" }
           ];

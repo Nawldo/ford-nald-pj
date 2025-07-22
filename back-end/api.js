@@ -1,7 +1,6 @@
 const express = require("express");
 const path = require("path");
 const cors = require("cors")
-
 const app = express();
 
 app.use(cors());
@@ -19,13 +18,12 @@ app.post("/login", async (req, res) => {
             });
         }
         
-        if (usuario !== "admin" || senha !== "123456") {
+        if (usuario !== "Ednaldo" || senha !== "ford25") {
             return res.status(401).json({
                 message: "O nome de usuário ou senha está incorreto ou não foi cadastrado!"
             });
         }
 
-        // SUCESSO NO LOGIN - IMPORTANTE: O TOKEN DEVE ESTAR AQUI!
         return res.status(200).json({
             id: 1,
             nome: "usuario",

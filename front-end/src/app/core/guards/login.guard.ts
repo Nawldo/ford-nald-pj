@@ -1,4 +1,3 @@
-// C:/dev/ford-nald-pf/front-end/src/app/core/guards/login.guard.ts
 import { CanActivateFn } from '@angular/router';
 import { inject } from '@angular/core';
 import { AuthService } from '../../services/auth.service';

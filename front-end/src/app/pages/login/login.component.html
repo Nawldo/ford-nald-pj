@@ -7,11 +7,19 @@
     <form class="login-form" (ngSubmit)="autenticar()">
       <div class="form-group">
         <label for="username">Usuário ou Email</label>
-        <input type="text" id="username" name="usuario" [(ngModel)]="login.usuario" required>
+        <input type="text" id="username" name="usuario" [(ngModel)]="login.usuario" required
+               [class.is-invalid]="usuarioField.invalid && (usuarioField.dirty || usuarioField.touched)"
+               #usuarioField="ngModel">
+        <div *ngIf="usuarioField.invalid && (usuarioField.dirty || usuarioField.touched)" class="invalid-feedback">
+          <div *ngIf="usuarioField.errors?.['required']">Usuário é obrigatório.</div> </div>
       </div>
       <div class="form-group">
         <label for="password">Senha</label>
-        <input type="password" id="password" name="senha" [(ngModel)]="login.senha" required>
+        <input type="password" id="password" name="senha" [(ngModel)]="login.senha" required
+               [class.is-invalid]="senhaField.invalid && (senhaField.dirty || senhaField.touched)"
+               #senhaField="ngModel">
+        <div *ngIf="senhaField.invalid && (senhaField.dirty || senhaField.touched)" class="invalid-feedback">
+          <div *ngIf="senhaField.errors?.['required']">Senha é obrigatória.</div> </div>
       </div>
       <button type="submit" class="btn btn-primary login-button">Entrar</button>
       <div class="login-options">

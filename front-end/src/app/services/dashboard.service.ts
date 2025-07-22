@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { Observable } from 'rxjs'; // Importe 'Observable'
+import { Observable } from 'rxjs'; 
 import { Veiculo, VehicleData } from './../models/cartao'; // Ajusta o caminho se o modelo 'cartao.ts' estiver em outro lugar
 
 @Injectable({

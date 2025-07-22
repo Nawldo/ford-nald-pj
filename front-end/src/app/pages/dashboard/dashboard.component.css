@@ -1,5 +1,3 @@
-/* C:/dev/ford-nald-pf/front-end/src/app/pages/dashboard/dashboard.component.css */
-
 .dashboard-layout {
   display: flex; /* Cria o layout de barra lateral e conteúdo */
   min-height: calc(100vh - 100px); /* Altura mínima para o layout (ajuste 100px pela altura do header/footer) */

@@ -1,5 +1,3 @@
-// src/app/models/user.ts
-
 /**
  * @type Usuario
  * @description

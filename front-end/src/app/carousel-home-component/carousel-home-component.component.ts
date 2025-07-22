@@ -1,15 +1,10 @@
-// C:/dev/ford-nald-pf/front-end/src/app/carousel-home-component/carousel-home-component.component.ts
-import { Component, OnInit } from '@angular/core'; // Removido AfterViewInit e ElementRef
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-// Removida a declaração: declare const bootstrap: any;
-
 interface CarouselImage {
   src: string;
   alt: string;
   text: string;
 }
-
 @Component({
   selector: 'app-carousel-home',
   standalone: true,
@@ -19,13 +14,12 @@ interface CarouselImage {
   templateUrl: './carousel-home-component.component.html',
   styleUrls: ['./carousel-home-component.component.css']
 })
-export class CarouselHomeComponent implements OnInit { // Removida a implementação de AfterViewInit
+export class CarouselHomeComponent implements OnInit {
   images: CarouselImage[] = [];
 
-  constructor() { } // Removida a injeção de ElementRef
-
+  constructor() { }
   ngOnInit(): void {
-    // SUAS IMAGENS E FRASES NA ORDEM CORRETA
+    //IMAGENS E FRASES NA ORDEM CORRETA
     this.images = [
       {
         src: 'assets/img/ford-a.jpg',
@@ -59,6 +53,4 @@ export class CarouselHomeComponent implements OnInit { // Removida a implementa�
       }
     ];
   }
-
-  // Removido completamente o método ngAfterViewInit()
 }

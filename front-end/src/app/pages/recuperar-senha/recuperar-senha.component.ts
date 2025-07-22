@@ -8,8 +8,8 @@ import { Router, RouterLink } from '@angular/router'; // Para navegação e rout
   standalone: true,
   imports: [
     CommonModule,
-    FormsModule, // Importe FormsModule para que [(ngModel)] funcione
-    RouterLink // Importe RouterLink para a diretiva routerLink
+    FormsModule, // Importa FormsModule para que [(ngModel)] funcione
+    RouterLink // Importa RouterLink para a diretiva routerLink
   ],
   templateUrl: './recuperar-senha.component.html',
   styleUrls: ['./recuperar-senha.component.css'] // Ou .scss

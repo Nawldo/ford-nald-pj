@@ -1,29 +1,59 @@
 <div class="cadastro-page">
   <div class="cadastro-card">
     <h2>Criar Conta</h2>
-    <form (ngSubmit)="cadastrar()">
+    <form (ngSubmit)="cadastrar(cadastroForm)" #cadastroForm="ngForm">
       <div class="mb-3">
         <label for="nome" class="form-label">Nome Completo</label>
-        <input type="text" class="form-control" id="nome" [(ngModel)]="usuario.nome" name="nome" required>
+        <input type="text" class="form-control" id="nome" [(ngModel)]="usuario.nome" name="nome" required
+               [class.is-invalid]="nomeField.invalid && (nomeField.dirty || nomeField.touched)"
+               #nomeField="ngModel">
+        <div *ngIf="nomeField.invalid && (nomeField.dirty || nomeField.touched)" class="invalid-feedback">
+          <div *ngIf="nomeField.errors?.['required']">Nome é obrigatório.</div>
+        </div>
       </div>
       <div class="mb-3">
         <label for="email" class="form-label">Email</label>
-        <input type="email" class="form-control" id="email" [(ngModel)]="usuario.email" name="email" required>
+        <input type="email" class="form-control" id="email" [(ngModel)]="usuario.email" name="email" required
+               [class.is-invalid]="emailField.invalid && (emailField.dirty || emailField.touched)"
+               #emailField="ngModel">
+        <div *ngIf="emailField.invalid && (emailField.dirty || emailField.touched)" class="invalid-feedback">
+          <div *ngIf="emailField.errors?.['required']">Email é obrigatório.</div>
+          <div *ngIf="emailField.errors?.['email']">Email inválido.</div>
+        </div>
       </div>
       <div class="mb-3">
         <label for="senha" class="form-label">Senha</label>
-        <input type="password" class="form-control" id="senha" [(ngModel)]="usuario.senha" name="senha" required>
+        <input type="password" class="form-control" id="senha" [(ngModel)]="usuario.senha" name="senha" required minlength="6"
+               [class.is-invalid]="senhaField.invalid && (senhaField.dirty || senhaField.touched)"
+               #senhaField="ngModel">
+        <div *ngIf="senhaField.invalid && (senhaField.dirty || senhaField.touched)" class="invalid-feedback">
+          <div *ngIf="senhaField.errors?.['required']">Senha é obrigatória.</div>
+          <div *ngIf="senhaField.errors?.['minlength']">Senha deve ter no mínimo 6 caracteres.</div>
+        </div>
       </div>
       <div class="mb-3">
         <label for="confirmarSenha" class="form-label">Confirmar Senha</label>
-        <input type="password" class="form-control" id="confirmarSenha" [(ngModel)]="usuario.confirmarSenha" name="confirmarSenha" required>
+        <input type="password" class="form-control" id="confirmarSenha" [(ngModel)]="usuario.confirmarSenha" name="confirmarSenha" required
+               [class.is-invalid]="confirmarSenhaField.invalid && (confirmarSenhaField.dirty || confirmarSenhaField.touched) || (usuario.senha !== usuario.confirmarSenha && (confirmarSenhaField.dirty || confirmarSenhaField.touched))"
+               #confirmarSenhaField="ngModel">
+        <div *ngIf="confirmarSenhaField.invalid && (confirmarSenhaField.dirty || confirmarSenhaField.touched)" class="invalid-feedback">
+          <div *ngIf="confirmarSenhaField.errors?.['required']">Confirmação de senha é obrigatória.</div>
+        </div>
+        <div *ngIf="usuario.senha !== usuario.confirmarSenha && (confirmarSenhaField.dirty || confirmarSenhaField.touched)" class="invalid-feedback">
+          Senhas não coincidem.
+        </div>
       </div>
 
       <div class="form-check mb-3">
-        <input type="checkbox" class="form-check-input" id="aceiteTermos" [(ngModel)]="usuario.aceiteTermos" name="aceiteTermos" required>
+        <input type="checkbox" class="form-check-input" id="aceiteTermos" [(ngModel)]="usuario.aceiteTermos" name="aceiteTermos" required
+               [class.is-invalid]="aceiteTermosField.invalid && (aceiteTermosField.dirty || aceiteTermosField.touched)"
+               #aceiteTermosField="ngModel">
         <label class="form-check-label" for="aceiteTermos">
           Eu concordo com os <a routerLink="/politica-privacidade">termos de uso e a política de privacidade</a>.
         </label>
+        <div *ngIf="aceiteTermosField.invalid && (aceiteTermosField.dirty || aceiteTermosField.touched)" class="invalid-feedback">
+          Você deve aceitar os termos.
+        </div>
       </div>
 
       <button type="submit" class="btn btn-primary w-100">Cadastrar</button>
