@@ -1,54 +1,31 @@
 <div class="dashboard-layout">
-    <aside class="sidebar">
-        <h3>Navegação Rápida</h3>
-        <ul>
-            <li><a routerLink="/dashboard" class="sidebar-link">Visão Geral</a></li>
-            <li><a routerLink="/socioford" class="sidebar-link">Ações Sociais</a></li>
-            <li><a routerLink="/politica-privacidade" class="sidebar-link">Privacidade</a></li>
-        </ul>
-
-        <div class="vehicle-details-section">
-            <h3>Detalhes do Veículo</h3>
-            @if (selectedVehicle) { <div class="selected-vehicle-card">
-                <img [src]="selectedVehicle.img" [alt]="selectedVehicle.vehicle" class="selected-vehicle-image">
-                <h4>{{ selectedVehicle.vehicle }}</h4>
-                <p>VIN: {{ selectedVehicle.vin }}</p>
-                <p>Odômetro: {{ selectedVehicle.odometro }} km</p>
-                <p>Combustível: {{ selectedVehicle.nivelCombustivel }}%</p>
-                <p>Status: <span [class]="selectedVehicle.status === 'on' ? 'status-on' : 'status-off'">{{
-                        selectedVehicle.status === 'on' ? 'Ligado' : 'Desligado' }}</span></p>
-                <p>Latitude: {{ selectedVehicle.lat }}</p>
-                <p>Longitude: {{ selectedVehicle.long }}</p>
-            </div>
-            } @else {
-            <p>Selecione um veículo para ver os detalhes.</p>
-            }
-        </div>
+  <aside class="sidebar">
     </aside>
 
-    <main class="content-area">
-        <h2>Nossa Frota Conectada</h2>
+  <main class="content-area">
+    <h2>Nossa Frota Conectada</h2>
+    @if (errorMessage) {
+      <div class="alert alert-danger" role="alert">
+        {{ errorMessage }}
+      </div>
+    } @else if (vehicles.length === 0) {
+      <p>Nenhum veículo disponível no momento.</p>
+    } @else {
+      <div class="vehicle-list">
+        @for (vehicle of vehicles; track vehicle.id) {
+          <div class="vehicle-card" (click)="loadVehicleDetails(vehicle.id)">
+            <img [src]="vehicle.img" [alt]="'Imagem do ' + vehicle.vehicle" class="vehicle-image">
+            <h3>{{ vehicle.vehicle }}</h3>
+            <p>VIN: {{ vehicle.vin }}</p>
+            <p>Volume Total: {{ vehicle.volumetotal }}</p>
+            <p>Conectados: {{ vehicle.connected }}</p>
+            <p>Atualizações de Software: {{ vehicle.softwareUpdates }}</p>
+            <p class="vehicle-price">Preço: R$ {{ vehicle.price | number:'1.2-2':'pt' }}</p>
 
-        @if (errorMessage) {
-        <div class="alert alert-danger" role="alert">
-            {{ errorMessage }}
-        </div>
-        } @else if (vehicles.length === 0) {
-        <p>Nenhum veículo disponível no momento.</p>
-        } @else {
-        <div class="vehicle-list">
-            @for (vehicle of vehicles; track vehicle.id) {
-            <div class="vehicle-card" (click)="loadVehicleDetails(vehicle.id)"> <img [src]="vehicle.img"
-                    [alt]="'Imagem do ' + vehicle.vehicle" class="vehicle-image">
-                <h3>{{ vehicle.vehicle }}</h3>
-                <p>VIN: {{ vehicle.vin }}</p>
-                <p>Volume Total: {{ vehicle.volumetotal }}</p>
-                <p>Conectados: {{ vehicle.connected }}</p>
-                <p>Atualizações de Software: {{ vehicle.softwareUpdates }}</p>
-                <p class="vehicle-price">Preço: R$ {{ vehicle.price | number:'1.2-2':'pt' }}</p>
+            <a [href]="'https://www.ford.com.br/compre-o-seu/busque-sua-concessionaria/'" target="_blank" class="btn btn-dark mt-3">Ver Ofertas</a>
             </div>
-            }
-        </div>
         }
-    </main>
+      </div>
+    }
+  </main>
 </div>

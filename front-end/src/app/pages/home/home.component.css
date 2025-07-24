@@ -1,3 +1,5 @@
+/* C:/dev/ford-nald-pf/front-end/src/app/pages/home/home.component.css */
+
 .home-page-content {
   padding: 30px 20px;
   max-width: 1200px;
@@ -5,7 +7,7 @@
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  text-align: center; /* Centraliza o conteúdo geral da Home */
+  text-align: center;
 }
 
 .home-page-content h1 {
@@ -26,13 +28,122 @@
   width: 100%;
   overflow: hidden;
   margin-top: 20px;
-  margin-bottom: 50px; /* Adiciona uma margem inferior de 50px */
-  border-radius: 14px; /* Adiciona bordas arredondadas ao carrossel */
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Adiciona uma sombra para destacá-lo */
+  margin-bottom: 50px;
+  border-radius: 14px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
+/* Estilos para as NOVAS SEÇÕES na Home */
+.home-section {
+  display: flex;
+  align-items: center;
+  gap: 40px; /* Espaço entre texto e imagem */
+  margin-bottom: 60px; /* Espaço entre as seções */
+  padding: 30px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
 
-/* Media Queries para Responsividade (ajustes na margem em telas menores) */
+.home-section:nth-child(odd) { /* Inverte a ordem da imagem e texto em seções ímpares */
+  flex-direction: row-reverse;
+  background-color: #f0f4f8; /* Cor de fundo alternativa */
+}
+
+.home-section .section-content {
+  flex: 1;
+  text-align: left; /* Alinha o texto à esquerda dentro da seção */
+}
+
+.home-section .section-content h2 {
+  color: #00205B;
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+  font-weight: bold;
+  text-align: left; /* Garante alinhamento à esquerda para o título da seção */
+}
+
+.home-section .section-content p {
+  color: #666;
+  font-size: 1rem;
+  margin-bottom: 25px;
+  text-align: left; /* Garante alinhamento à esquerda para o parágrafo */
+}
+
+.home-section .section-image-home {
+  flex: 1;
+  max-width: 400px; /* Largura máxima para a imagem */
+  height: 250px; /* Altura fixa para consistência */
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.home-section .btn {
+  font-size: 1rem;
+  padding: 10px 25px;
+  border-radius: 5px;
+  text-align: center;
+  width: fit-content; /* Botão não ocupa 100% da largura */
+}
+
+.home-section .btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+  color: white;
+}
+.home-section .btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #004085;
+}
+
+.home-section .btn-outline-primary {
+  border-color: #007bff;
+  color: #007bff;
+  background-color: transparent;
+}
+.home-section .btn-outline-primary:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.home-section.final-call-to-action {
+  background-color: #00205B; /* Fundo azul da Ford */
+  color: white;
+  text-align: center;
+  padding: 50px 30px;
+  margin-bottom: 30px; /* Espaço antes do footer */
+  flex-direction: column; /* Sempre empilhado, mesmo em desktop */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3); /* Sombra mais forte */
+}
+
+.home-section.final-call-to-action .section-content-centered {
+  max-width: 800px; /* Limita a largura do texto para leitura */
+  margin: 0 auto;
+}
+
+.home-section.final-call-to-action h2 {
+  color: white; /* Título branco */
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.home-section.final-call-to-action p {
+  color: #e0e0e0; /* Parágrafo cinza claro */
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.home-section.final-call-to-action .btn-lg { /* Estilo para o botão grande */
+  padding: 15px 40px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 30px; /* Botão mais arredondado */
+}
+
+/* Media Queries para Responsividade */
 @media (max-width: 768px) {
   .home-page-content {
     padding: 20px 15px;
@@ -46,6 +157,46 @@
     margin-bottom: 20px;
   }
   .simple-carousel-container {
-    margin-bottom: 30px; /*Menor margem em telas menores */
+    margin-bottom: 30px;
+  }
+
+  .home-section {
+    flex-direction: column !important; /* Força empilhar em mobile */
+    text-align: center;
+    gap: 20px;
+    margin-bottom: 40px;
+    padding: 20px;
+  }
+  .home-section .section-content {
+    text-align: center; /* Centraliza o texto em mobile */
+  }
+  .home-section .section-content h2 {
+    font-size: 1.8rem;
+    text-align: center; /* Centraliza o título em mobile */
+  }
+  .home-section .section-content p {
+    text-align: center; /* Centraliza o parágrafo em mobile */
+  }
+  .home-section .section-image-home {
+    max-width: 90%;
+    height: 200px;
+  }
+  .home-section .btn {
+    width: 80%; /* Botões mais largos em mobile */
+    margin: 0 auto; /* Centraliza botões */
+  }
+  /* Estilos para a nova seção final de chamada à ação (já ajustados na media query) */
+  .home-section.final-call-to-action {
+    padding: 30px 20px;
+  }
+  .home-section.final-call-to-action h2 {
+    font-size: 2rem;
+  }
+  .home-section.final-call-to-action p {
+    font-size: 1rem;
+  }
+  .home-section.final-call-to-action .btn-lg {
+    padding: 12px 30px;
+    font-size: 1.1rem;
   }
 }
