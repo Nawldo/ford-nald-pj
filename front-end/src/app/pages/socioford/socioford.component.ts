@@ -1,25 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+// C:/dev/ford-nald-pf/front-end/src/app/pages/socioford/socioford.component.ts
+import { Component, OnInit, AfterViewInit, ElementRef, QueryList, ViewChildren } from '@angular/core'; // Ajuste as importações para incluir ViewChildren, QueryList, ElementRef
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router'; 
-import { AnimationService } from '../../services/animation'; // Importe o serviço
-import { ViewChildren, QueryList, ElementRef, AfterViewInit } from '@angular/core'; // Para observar múltiplos elementos, e AfterViewInit
+import { Router, RouterLink } from '@angular/router';
+import { AnimationService } from '../../services/animation'; // <-- CORREÇÃO AQUI: .service
 
 @Component({
   selector: 'app-socioford',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './socioford.component.html',
-  styleUrls: ['./socioford.component.css']
+  styleUrls: ['./socioford.component.css'] // Ou .scss
 })
-export class SociofordComponent implements OnInit, AfterViewInit{
+export class SociofordComponent implements OnInit, AfterViewInit { // Implementa OnInit e AfterViewInit
 
   constructor(private router: Router, private animationService: AnimationService) { }
-  @ViewChildren('animatedSection') animatedSections!: QueryList<ElementRef>; 
+
+  @ViewChildren('animatedSection') animatedSections!: QueryList<ElementRef>; // <-- O ViewChildren deve estar aqui, dentro da classe
 
   ngOnInit(): void {
-    // Nada específico aqui, animações no ngAfterViewInit
+    // Nada específico aqui para o OnInit neste componente
   }
-   ngAfterViewInit(): void {
+
+  ngAfterViewInit(): void {
     // Aplica animações a cada seção quando ela entra na viewport
     this.animatedSections.forEach(section => {
       this.animationService.observeElementForAnimation(section, 'animate__fadeInUp');
@@ -28,5 +30,13 @@ export class SociofordComponent implements OnInit, AfterViewInit{
 
   goToHome(): void {
     this.router.navigate(['/home']);
+  }
+
+  // NOVO: Adicione um método para rolar suavemente para as seções (usado no HTML da sidebar)
+  scrollToSection(sectionId: string): void {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   }
 }

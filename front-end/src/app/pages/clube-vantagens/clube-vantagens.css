@@ -1,0 +1,178 @@
+.clube-container {
+  max-width: 1200px; 
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: center;
+  color: #333;
+  line-height: 1.6;
+}
+
+.clube-container h1 {
+  color: #2231a1;
+  font-size: 3rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.clube-container .subtitle {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 40px;
+}
+
+.benefits-section {
+  margin-bottom: 30px; /* Reduz espaço, já que removemos a seção de baixo */
+  padding: 40px 0; /* Aumenta o padding interno para mais espaço */
+  border-top: none; /* Remove bordas quebrando o design */
+  border-bottom: none;
+}
+.benefits-section h2 {
+  color: #00205B; /* Título da seção principal na cor da Ford */
+  font-size: 2.5rem; /* Aumentei um pouco o tamanho */
+  margin-bottom: 40px; /* Mais espaço abaixo do título da seção */
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Minmax ligeiramente maior */
+  gap: 35px; /* Aumenta o espaço entre os cards */
+  margin-top: 30px;
+}
+
+.benefit-card {
+  background-color: #fff; /* Fundo branco, para destacarmos com borda/sombra */
+  border: 1px solid #e0e6eb; /* Borda suave */
+  border-radius: 12px; /* Bordas mais arredondadas */
+  padding: 30px; /* Aumenta o padding interno do card */
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Sombra mais destacada */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px; /* Espaço entre os elementos do card */
+  position: relative; /* Para gradiente de borda */
+  overflow: hidden; /* Para garantir que gradientes não vazem */
+}
+.benefit-card::before { /* Elemento pseudo para o efeito de gradiente na borda */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px; /* Altura do gradiente na parte superior */
+    background: linear-gradient(to right, #007bff, #28a745, #ffc107); /* Gradiente azul, verde, amarelo */
+    border-radius: 10px 10px 0 0;
+    transition: height 0.3s ease;
+}
+.benefit-card:hover::before {
+    height: 10px; /* Aumenta no hover */
+}
+
+.benefit-card:hover {
+  transform: translateY(-8px); /* Efeito de "levitar" mais acentuado */
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  border-color: #c0c0c0; /* Borda um pouco mais escura no hover */
+}
+
+.benefit-icon {
+  font-size: 4rem; /* Ícones maiores para impacto */
+  color: #007bff; /* Azul padrão */
+  margin-bottom: 10px;
+}
+/* Cores diferentes para ícones dos cards */
+.benefits-grid .benefit-card:nth-child(1) .benefit-icon { color: #007bff; /* Azul */ }
+.benefits-grid .benefit-card:nth-child(2) .benefit-icon { color: #28a745; /* Verde */ }
+.benefits-grid .benefit-card:nth-child(3) .benefit-icon { color: #ffc107; /* Amarelo */ }
+.benefits-grid .benefit-card:nth-child(4) .benefit-icon { color: #6f42c1; /* Roxo */ } /* Ou outra cor */
+
+
+.benefit-card h3 {
+  font-size: 1.8rem; /* Títulos maiores */
+  color: #00205B;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+.benefit-card p {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 0;
+}
+
+/* Removida a seção .join-section, então seus estilos não serão mais necessários */
+/*
+.join-section {
+  background-color: #f0f4f8;
+  border: none;
+  padding: 40px;
+  border-radius: 10px;
+}
+.join-section p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    color: #555;
+}
+.join-section .btn {
+    font-size: 1.1rem;
+    padding: 12px 30px;
+}
+*/
+
+.clube-container .btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    display: block;
+    width: fit-content;
+    margin: 20px auto 0;
+}
+.clube-container .btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}
+
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .clube-container {
+    margin: 20px 15px;
+    padding: 20px;
+  }
+  .clube-container h1 {
+    font-size: 2.5rem;
+  }
+  .clube-container .subtitle {
+    font-size: 1rem;
+  }
+  .benefits-section {
+    padding: 25px 0;
+    margin-bottom: 25px;
+  }
+  .benefits-section h2 {
+    font-size: 2rem;
+    margin-bottom: 25px;
+  }
+  .benefits-grid {
+    grid-template-columns: 1fr;
+  }
+  .benefit-card {
+    padding: 20px;
+    gap: 10px;
+  }
+  .benefit-icon {
+    font-size: 3rem;
+  }
+  .benefit-card h3 {
+    font-size: 1.4rem;
+  }
+  .benefit-card p {
+    font-size: 0.9rem;
+  }
+}

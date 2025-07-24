@@ -1,0 +1,131 @@
+.list-page-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  color: #333;
+  line-height: 1.6;
+  text-align: center; /* Centraliza o título e subtítulo */
+}
+
+.list-page-container h1 {
+  color: #00205B; /* Azul Ford */
+  font-size: 3rem;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.list-page-container .subtitle {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 40px;
+}
+
+.list-section {
+  margin-bottom: 50px;
+  padding: 20px 0;
+  border-top: 1px dashed #eee; /* Linha divisória entre seções */
+}
+
+.list-section:first-of-type {
+    border-top: none; /* Remove a borda superior da primeira seção */
+}
+
+.list-section h2 {
+  color: #007bff; /* Azul primário do Bootstrap */
+  font-size: 2.2rem;
+  margin-bottom: 30px;
+}
+
+.item-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Layout responsivo em grade */
+  gap: 25px;
+  justify-content: center;
+}
+
+.item-card {
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: left; /* Conteúdo do card alinhado à esquerda */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.item-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+  border-color: #007bff;
+}
+
+.item-card h3 {
+  color: #00205B;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  font-weight: bold;
+  border-bottom: 1px dashed #cfd4da; /* Linha sutil no título do card */
+  padding-bottom: 5px;
+}
+
+.item-card p {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 0;
+}
+
+.item-card .btn {
+  margin-top: 15px; /* Espaço acima do botão */
+  width: fit-content; /* Botão com largura ajustada ao texto */
+  align-self: center; /* Centraliza o botão dentro do card */
+}
+
+/* Botão "Voltar para Home" */
+.list-page-container .btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    display: block;
+    width: fit-content;
+    margin: 20px auto 0;
+}
+.list-page-container .btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .list-page-container {
+    margin: 20px 15px;
+    padding: 20px;
+  }
+  .list-page-container h1 {
+    font-size: 2.5rem;
+  }
+  .list-section h2 {
+    font-size: 1.8rem;
+  }
+  .item-grid {
+    grid-template-columns: 1fr; /* Uma coluna em telas menores */
+  }
+  .item-card {
+    padding: 15px;
+  }
+  .item-card h3 {
+    font-size: 1.3rem;
+  }
+  .item-card p {
+    font-size: 0.9rem;
+  }
+}

@@ -19,6 +19,18 @@
   flex-direction: column;
   gap: 30px; /* Espaço entre seções da sidebar */
   flex-shrink: 0; /* Não permite que a sidebar encolha */
+  box-shadow: 2px 0 5px rgba(0,0,0,0.05); /* Sombra para destacá-la */
+}
+
+.sidebar-section {
+  margin-bottom: 20px; /* Espaço entre as seções internas da sidebar */
+  padding-bottom: 20px;
+  border-bottom: 1px dashed #cfd4da; /* Linha divisória sutil */
+}
+.sidebar-section:last-of-type {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none; /* Remove a borda da última seção */
 }
 
 .sidebar h3 {
@@ -36,11 +48,13 @@
 }
 
 .sidebar li {
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .sidebar-link {
-  display: block;
+  display: flex; /* Para alinhar ícone e texto */
+  align-items: center; /* Alinha verticalmente */
+  gap: 10px; /* Espaço entre ícone e texto */
   padding: 10px 15px;
   color: #333;
   text-decoration: none;
@@ -49,9 +63,39 @@
   font-weight: 500;
 }
 
+.sidebar-link i { /* Estilo do ícone */
+  font-size: 1.2rem;
+  color: #007bff;
+}
+
 .sidebar-link:hover {
   background-color: #e0e6eb;
-  color: #007bff;
+  color: #00205B; /* Cor azul escura da Ford no hover */
+}
+.sidebar-link:hover i {
+  color: #00205B; /* Ícone também muda de cor no hover */
+}
+
+/* Estilos para Ações Rápidas (novos botões) */
+.quick-actions {
+  display: flex;
+  flex-direction: column; /* Botões empilhados */
+  gap: 10px; /* Espaço entre os botões */
+}
+
+.quick-action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centraliza o texto e ícone no botão */
+  gap: 10px;
+  padding: 12px 15px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+.quick-action-btn i {
+  font-size: 1.2rem;
 }
 
 /* Estilo da Seção de Detalhes do Veículo na Sidebar */
@@ -62,6 +106,7 @@
     padding: 20px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     text-align: center;
+    margin-top: 20px; /* Espaço acima da seção de detalhes */
 }
 
 .selected-vehicle-card {
@@ -98,7 +143,6 @@
     color: #dc3545; /* Vermelho para desligado */
     font-weight: bold;
 }
-
 
 /* Estilo da Área de Conteúdo Principal */
 .content-area {
@@ -162,6 +206,13 @@
   margin-bottom: 4px;
 }
 
+.vehicle-card .vehicle-price {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #28a745; /* Cor verde para preço, ou a cor que preferir */
+  margin-top: 10px;
+}
+
 /* Alertas de erro/vazio */
 .alert-danger {
   background-color: #f8d7da;
@@ -192,11 +243,15 @@
     justify-content: center;
     gap: 20px; /* Espaço entre os elementos da sidebar */
   }
+  .sidebar-section {
+    border-bottom: none; /* Remove bordas internas quando em linha */
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
   .sidebar h3 {
-    width: 100%; /* Título da sidebar ocupa a largura total para centralizar */
+    width: 100%;
     text-align: center;
-    margin-bottom: 10px;
-    border-bottom: none; /* Remove borda */
+    margin-bottom: 15px;
   }
   .sidebar ul {
     display: flex;
@@ -210,10 +265,21 @@
   .sidebar-link {
     font-size: 0.9rem;
     padding: 8px 12px;
+    gap: 5px;
   }
-  .vehicle-details-section {
-    width: 100%; /* Ocupa a largura total em mobile */
-    margin-top: 20px; /* Espaço entre links e detalhes */
+  .quick-actions {
+    flex-direction: row; /* Botões de ação em linha em telas médias */
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+  .quick-action-btn {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+  .vehicle-details-section { /* Centraliza a seção de detalhes em telas menores */
+    width: 100%;
+    margin-top: 20px;
   }
 
   .content-area {
@@ -232,14 +298,20 @@
   }
 }
 
-@media (max-width: 576px) { /* Celulares */
-  .sidebar ul {
-    flex-direction: column; /* Links da sidebar um abaixo do outro */
-    gap: 5px;
+@media (max-width: 768px) { /* Celulares */
+  .sidebar {
+    flex-direction: column; /* Sidebar volta a empilhar em celulares */
+    padding: 15px;
+    gap: 15px;
   }
-  .sidebar-link {
-    font-size: 0.85rem;
-    padding: 6px 10px;
+  .sidebar-section {
+    width: 100%;
+    text-align: center;
+  }
+  .sidebar ul, .quick-actions {
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
   }
   .vehicle-list {
     grid-template-columns: 1fr; /* Um card por linha */

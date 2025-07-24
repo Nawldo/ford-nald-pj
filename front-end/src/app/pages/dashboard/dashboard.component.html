@@ -1,6 +1,43 @@
 <div class="dashboard-layout">
   <aside class="sidebar">
-    </aside>
+  <div class="sidebar-section">
+    <h3>Navegação Rápida</h3>
+    <ul>
+      <li><a routerLink="/dashboard" class="sidebar-link"><i class="bi bi-speedometer2"></i> Visão Geral</a></li>
+      <li><a routerLink="/socioford" class="sidebar-link"><i class="bi bi-people-fill"></i> Ações Sociais</a></li>
+      <li><a routerLink="/politica-privacidade" class="sidebar-link"><i class="bi bi-shield-lock-fill"></i> Privacidade</a></li>
+      <li><a routerLink="/clube-vantagens" class="sidebar-link"><i class="bi bi-award-fill"></i> Clube Ford</a></li>
+      <li><a routerLink="/lista" class="sidebar-link"><i class="bi bi-geo-alt-fill"></i> Concessionárias</a></li>
+    </ul>
+  </div>
+
+  <div class="sidebar-section">
+    <h3>Ações Rápidas</h3>
+    <div class="quick-actions">
+      <a class="btn btn-info quick-action-btn" href="http://googleusercontent.com/play.google.com/1" target="_blank"><i class="bi bi-cloud-download"></i> App Ford</a>
+      <a class="btn btn-success quick-action-btn" href="http://googleusercontent.com/www.ford.com.br/contato" target="_blank"><i class="bi bi-headset"></i> Suporte</a>
+    </div>
+  </div>
+
+  <div class="sidebar-section vehicle-details-section">
+      <h3>Detalhes do Veículo</h3>
+      @if (selectedVehicle) {
+          <div class="selected-vehicle-card">
+              <img [src]="selectedVehicle.img" [alt]="selectedVehicle.vehicle" class="selected-vehicle-image">
+              <h4>{{ selectedVehicle.vehicle }}</h4>
+              <p>VIN: {{ selectedVehicle.vin }}</p>
+              <p>Odômetro: {{ selectedVehicle.odometro }} km</p>
+              <p>Combustível: {{ selectedVehicle.nivelCombustivel }}%</p>
+              <p>Status: <span [class]="selectedVehicle.status === 'on' ? 'status-on' : 'status-off'">{{
+                      selectedVehicle.status === 'on' ? 'Ligado' : 'Desligado' }}</span></p>
+              <p>Latitude: {{ selectedVehicle.lat }}</p>
+              <p>Longitude: {{ selectedVehicle.long }}</p>
+          </div>
+      } @else {
+          <p>Selecione um veículo para ver os detalhes.</p>
+      }
+  </div>
+</aside>
 
   <main class="content-area">
     <h2>Nossa Frota Conectada</h2>

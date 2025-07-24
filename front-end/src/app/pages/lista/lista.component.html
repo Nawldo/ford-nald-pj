@@ -1,3 +1,38 @@
-<h2 class="text-center my-4">📋 Lista de Cadastros</h2>
-<p class="text-muted text-center">Em breve essa seção mostrará todos os dados cadastrados.</p>
+<div class="list-page-container">
+  <h1>Nossos Pontos de Atendimento</h1>
+  <p class="subtitle">Encontre a concessionária Ford mais próxima ou um ponto de recarga para seu veículo elétrico.</p>
 
+  <section class="list-section">
+    <h2>Concessionárias Ford</h2>
+    <div class="item-grid">
+      @for (dealer of dealers; track dealer.id) {
+        <div class="item-card">
+          <h3>{{ dealer.name }}</h3>
+          <p><strong>Endereço:</strong> {{ dealer.address }}</p>
+          <p><strong>Telefone:</strong> {{ dealer.phone }}</p>
+          <a [href]="'https://www.google.com/maps/search/?api=1&query=' + dealer.address" target="_blank" class="btn btn-sm btn-primary">Ver no Mapa</a>
+        </div>
+      } @empty {
+        <p>Nenhuma concessionária encontrada.</p>
+      }
+    </div>
+  </section>
+
+  <section class="list-section">
+    <h2>Pontos de Recarga</h2>
+    <div class="item-grid">
+      @for (charger of chargers; track charger.id) {
+        <div class="item-card">
+          <h3>{{ charger.name }}</h3>
+          <p><strong>Endereço:</strong> {{ charger.address }}</p>
+          <p><strong>Tipo:</strong> {{ charger.type }}</p>
+          <a [href]="'https://www.google.com/maps/search/?api=1&query=' + charger.address" target="_blank" class="btn btn-sm btn-outline-primary">Ver no Mapa</a>
+        </div>
+      } @empty {
+        <p>Nenhum ponto de recarga encontrado.</p>
+      }
+    </div>
+  </section>
+
+  <button class="btn btn-secondary mt-4" (click)="goToHome()">Voltar para Home</button>
+</div>
