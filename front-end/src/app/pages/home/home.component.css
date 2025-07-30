@@ -1,5 +1,3 @@
-/* C:/dev/ford-nald-pf/front-end/src/app/pages/home/home.component.css */
-
 .home-page-content {
   padding: 30px 20px;
   max-width: 1200px;
@@ -23,17 +21,95 @@
   margin-bottom: 30px;
 }
 
-.simple-carousel-container {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  margin-top: 20px;
-  margin-bottom: 50px;
-  border-radius: 14px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+/* Contêiner para Carrossel e Barra de Atalhos Lado a Lado */
+.home-main-section {
+  display: flex; /* Alinha os itens em linha */
+  gap: 30px; /* Espaço entre o carrossel e a barra de atalhos */
+  align-items: flex-start; /* Alinha o topo do carrossel e da barra */
+  margin-bottom: 60px; /* Espaço abaixo desta seção principal */
+  flex-wrap: wrap; /* Permite empilhar em telas menores */
 }
 
-/* Estilos para as NOVAS SEÇÕES na Home */
+/* Estilos do Carrossel (ajustados para caber ao lado e ser maior) */
+.simple-carousel-container {
+  position: relative;
+  flex: 3; /* O carrossel ocupa 3 partes do espaço flex */
+  width: 100%;
+  overflow: hidden;
+  margin-top: 0;
+  margin-bottom: 0;
+  border-radius: 14px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  min-width: 650px; /* Largura mínima maior para o carrossel */
+  min-height: 480px; /* Altura mínima maior para o carrossel */
+}
+
+/* Ajuste para a imagem dentro do carrossel (para preencher a nova altura) */
+.simple-carousel-container .carousel-item img {
+    height: 100%; /* A imagem preenche a altura do carousel-item */
+    width: 100%;
+    object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer, cortando se necessário */
+}
+
+/* Estilos da Barra de Atalhos (agora uma sidebar na Home) */
+.quick-access-bar {
+  flex: 1; /* A barra de atalhos ocupa 1 parte do espaço flex */
+  display: flex;
+  flex-direction:column; /* Botões empilhados */
+  justify-content: flex-start; /* Alinha os botões ao topo */
+  align-items: center; /* Centraliza os botões horizontalmente */
+  gap: 5px; /* Espaço entre os botões */
+  background-color: #f0f4f8; /* Cor de fundo suave */
+  padding: 15px 5px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  margin-top: 0;
+  min-width: 300px; /* Largura mínima para a barra de atalhos */
+}
+
+.quick-access-bar h2 { /* Título da barra de atalhos */
+  color: #00205B;
+  font-size: 1,2rem;
+  margin-bottom: 10px;
+  font-weight: bold;
+  text-align: center;
+  width: 100%; /* Ocupa largura total para centralizar */
+}
+
+.quick-access-btn {
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+  gap: 2px;
+  text-decoration: none;
+  color: #333; /* Cor do texto dos botões */
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  min-width: 100px; /* Largura mínima para o botão */
+  text-align: center;
+  background-color: #e9ecef; /* Cor de fundo suave para os botões */
+}
+
+.quick-access-btn i {
+  font-size: 1.5rem; /* Tamanho dos ícones */
+  margin-bottom: 2px;
+  color: #007bff; /* Cor azul primária para os ícones */
+}
+
+.quick-access-btn:hover {
+  background-color: #d1e2ed; /* Cor mais escura no hover */
+  transform: translateY(-3px); /* Leve efeito de levitar */
+  color: #00205B; /* Texto Ford azul escuro no hover */
+}
+.quick-access-btn:hover i {
+    color: #00205B; /* Ícone Ford azul escuro no hover */
+}
+
+
+/* Estilos para as Seções Abaixo (call-to-action-social, benefits-loyalty, etc.) */
 .home-section {
   display: flex;
   align-items: center;
@@ -143,8 +219,9 @@
   border-radius: 30px; /* Botão mais arredondado */
 }
 
+
 /* Media Queries para Responsividade */
-@media (max-width: 768px) {
+@media (max-width: 992px) { /* Tablets e laptops menores */
   .home-page-content {
     padding: 20px 15px;
   }
@@ -158,6 +235,35 @@
   }
   .simple-carousel-container {
     margin-bottom: 30px;
+  }
+
+  .home-main-section { /* Empilha o carrossel e a barra de atalhos em telas menores */
+    flex-direction: column;
+    gap: 40px;
+    margin-bottom: 50px;
+  }
+  .simple-carousel-container {
+    min-height: 350px; /* Altura mínima menor em tablets */
+    min-width: unset;
+    margin-bottom: 0;
+  }
+  .quick-access-bar {
+    min-width: unset;
+    width: 100%;
+    padding: 20px;
+    margin-top: 0;
+  }
+  .quick-access-bar h2 {
+    font-size: 1.6rem;
+  }
+  .quick-access-btn {
+    width: 80%;
+    max-width: 300px;
+    font-size: 1rem;
+    padding: 12px 20px;
+  }
+  .quick-access-btn i {
+    font-size: 2rem;
   }
 
   .home-section {
@@ -185,7 +291,7 @@
     width: 80%; /* Botões mais largos em mobile */
     margin: 0 auto; /* Centraliza botões */
   }
-  /* Estilos para a nova seção final de chamada à ação (já ajustados na media query) */
+
   .home-section.final-call-to-action {
     padding: 30px 20px;
   }
@@ -198,5 +304,26 @@
   .home-section.final-call-to-action .btn-lg {
     padding: 12px 30px;
     font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 768px) { /* Celulares */
+  .home-page-content h1 {
+    font-size: 2rem;
+  }
+  .home-page-content p {
+    font-size: 1rem;
+  }
+  /* Ajustes para quick-access-bar em telas muito pequenas */
+  .quick-access-bar {
+    padding: 15px;
+    gap: 15px;
+  }
+  .quick-access-btn {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+  .quick-access-btn i {
+    font-size: 2rem;
   }
 }

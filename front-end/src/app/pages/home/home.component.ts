@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CarouselHomeComponent } from "../../carousel-home-component/carousel-home-component.component";
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [
     CommonModule,
-    CarouselHomeComponent
+    CarouselHomeComponent,
+    RouterLink
 ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']

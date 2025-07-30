@@ -1,23 +1,36 @@
 const express = require("express");
 const path = require("path");
-const cors = require("cors")
+const cors = require("cors");
 const app = express();
 
-app.use(cors());
+// --- INÍCIO DO AJUSTE CORS ---
+// Configuração CORS explícita para o meu frontend.
+// Mude 'http://localhost:4200' para a URL exata do seu frontend Angular.
+// Se o frontend for para produção (ex: 'https://seusite.com.br'), adiciono essa URL aqui também.
+const corsOptions = {
+    origin: 'http://localhost:4200', // Permite requisições apenas do seu frontend Angular
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Métodos HTTP permitidos
+    allowedHeaders: ['Content-Type', 'Authorization'], // Cabeçalhos permitidos para enviar na requisição
+    credentials: true // Permite o envio de credenciais (cookies, headers de Authorization)
+};
+
+// Aplica o middleware CORS com as opções definidas
+app.use(cors(corsOptions));
+// --- FIM DO AJUSTE CORS ---
+
 app.use(express.json());
 app.use(express.static(path.join(__dirname)));
 
 app.post("/login", async (req, res) => {
     try {
-
-        const { usuario, senha } = req.body
+        const { usuario, senha } = req.body;
 
         if (!usuario || !senha) {
             return res.status(400).json({
                 message: "O campo de usuário ou senha não foi preenchido!"
             });
         }
-        
+
         if (usuario !== "Ednaldo" || senha !== "ford25") {
             return res.status(401).json({
                 message: "O nome de usuário ou senha está incorreto ou não foi cadastrado!"
@@ -28,7 +41,7 @@ app.post("/login", async (req, res) => {
             id: 1,
             nome: "usuario",
             email: "admin@email.com",
-            token: "seu_token_jwt_simulado_aqui_12345" 
+            token: "seu_token_jwt_simulado_aqui_12345"
         });
 
     } catch (error) {
@@ -87,7 +100,7 @@ app.get("/vehicles", (req, res) => {
 
 app.post("/vehicleData", (req, res) => {
     try {
-        const { vin } = req.body
+        const { vin } = req.body;
 
         switch (vin) {
             case "2FRHDUYS2Y63NHD22454":
@@ -149,25 +162,25 @@ app.post("/vehicleData", (req, res) => {
                     lat: -12.2322,
                     long: -35.2314
                 });
-             case "2FMUEYS2Y63MUE456": // <-- VIN DO MUSTANG-E (id 5)
+            case "2FMUEYS2Y63MUE456": // <-- VIN DO MUSTANG-E (id 5)
                 return res.status(200).json({
-                    id: 5, 
-                    odometro: 35000, 
-                    nivelCombustivel: 95, 
+                    id: 5,
+                    odometro: 35000,
+                    nivelCombustivel: 95,
                     status: "on",
-                    lat: -23.5505, 
+                    lat: -23.5505,
                     long: -46.6333
                 });
 
             case "2FMAHDYS2Y63MAV789": // <-- VIN DO MAVERICK (id 6)
                 return res.status(200).json({
-                    id: 6, 
+                    id: 6,
                     odometro: 18000,
                     nivelCombustivel: 70,
                     status: "on",
-                    lat: -19.9167, 
+                    lat: -19.9167,
                     long: -43.9345
-                })
+                });
             default:
                 return res.status(400).json({
                     message: "Código VIN utilizado não foi encontrado!"
@@ -178,7 +191,7 @@ app.post("/vehicleData", (req, res) => {
             message: "Falha na comunicação com o servidor!"
         });
     }
-})
+});
 
 app.listen(3001, () => {
     console.log("API running on http://localhost:3001/");
